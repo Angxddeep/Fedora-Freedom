@@ -1,31 +1,10 @@
-name: "Dependabot Updates"
-
-on:
-  schedule:
-    - cron: "0 10 * * *" # Runs at 10 AM UTC daily
-  workflow_dispatch: # Allows manual trigger
-
-jobs:
-  dependabot:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Dependabot Update"s
-        uses: dependabot/fetch-metadata@v1
-        with:
-          package-ecosystem: "cargo" # Required for Rust
-          directory: "/" # Location of your Cargo.toml file. Use "/" for the root of the repo.
-          schedule-interval: "daily" # or "weekly", "monthly" - how often to check for updates
-          open-pull-requests-limit: 5 # Optional: Limit the number of open PRs Dependabot creates.
-          ignore: |
-            regex
-            serde@>=1.0.15,<2.0.0
-          allow: |
-            reqwest
-          labels: |
-            dependencies
-            rust
-            dependabot
-          reviewers: |
-            your-github-username
-          assignees: |
-            your-github-username
+version: 2
+updates:
+  - package-ecosystem: "cargo"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
