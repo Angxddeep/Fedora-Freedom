@@ -1,0 +1,12 @@
+[package]
+name = "Fedora-Freedom"
+version = "0.1.0"
+edition = "2021"
+description = "Fedora setup wizard written in Rust"
+license = "MIT"
+authors = ["Angaddeep Singh <angxddeep@gmail.com>"]
+repository = "https://github.com/Angxddeep/Fedora-Freedom"
+
+[dependencies]
+dialoguer = "0.11.0"
+colored = "2.0"           
