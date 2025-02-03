@@ -1,5 +1,4 @@
 use std::process::{Command, Stdio};
-use std::io;
 use dialoguer::{Select, Confirm};
 use colored::*;
 

@@ -9,4 +9,4 @@ repository = "https://github.com/Angxddeep/Fedora-Freedom"
 
 [dependencies]
 dialoguer = "0.11.0"
-colored = "2.0"           
+colored = "3.0"
