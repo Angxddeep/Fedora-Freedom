@@ -23,9 +23,9 @@ installRPMFusion() {
     if [ ! -e /etc/yum.repos.d/rpmfusion-free.repo ] || [ ! -e /etc/yum.repos.d/rpmfusion-nonfree.repo ]; then
         color_echo "yellow" "Installing RPM Fusion..."
         sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-        sudo dnf config-manager --enable fedora-cisco-openh264
-        sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates
-        dnf config-manager --set-enabled rpmfusion-free-updates
+        sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
+        sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
+        sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
         color_echo "green" "RPM Fusion installed and enabled"
     else
         color_echo "green" "RPM Fusion already installed"
