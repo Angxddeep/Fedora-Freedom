@@ -26,7 +26,7 @@ findArch() {
 }
 
 getUrl() {
-    echo "https://github.com/Angxddeep/Fedora-Freedom/releases/latest/download/Fedora-Freedom"
+    echo "https://raw.githubusercontent.com/Angxddeep/Fedora-Freedom/refs/heads/main/Fedora-Freedom.sh"
 }
 
 findArch
