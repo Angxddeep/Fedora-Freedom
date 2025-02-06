@@ -19,6 +19,13 @@ color_echo() {
     esac
 }
 
+installflathub() {
+    color_echo "yellow" "Enabling Flathub..."
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    color_echo "green" "Flathub Enabled"
+}
+installflathub
+
 installRPMFusion() {
     if [ ! -e /etc/yum.repos.d/rpmfusion-free.repo ] || [ ! -e /etc/yum.repos.d/rpmfusion-nonfree.repo ]; then
         color_echo "yellow" "Installing RPM Fusion..."
