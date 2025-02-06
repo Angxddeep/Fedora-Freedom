@@ -1,21 +1,9 @@
 #!/bin/sh -e
 
-# Prevent execution if this script was only partially downloaded
+
 {
 rc='\033[0m'
 red='\033[0;31m'
-
-check() {
-    exit_code=$1
-    message=$2
-
-    if [ "$exit_code" -ne 0 ]; then
-        printf '%sERROR: %s%s\n' "$red" "$message" "$rc"
-        exit 1
-    fi
-
-    unset exit_code
-    unset message
 }
 
 
@@ -107,7 +95,6 @@ while true; do
     esac
 done
 
-
 color_echo "yellow" "You have provided the following:"
 color_echo "red" "CPU: $CPU_INFO"
 color_echo "red" "GPU: $GPU_INFO"
@@ -157,4 +144,3 @@ configure_dnf() {
 }
 
 configure_dnf
-check
