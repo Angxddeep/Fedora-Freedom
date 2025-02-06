@@ -127,7 +127,7 @@ configure_dnf() {
       read yn
       case "$yn" in
         [Yy]* ) 
-          curl -o /tmp/dnf.conf https://github.com/Angxddeep/Fedora-Freedom/blob/main/dnf.conf
+          curl -o /tmp/dnf.conf https://raw.githubusercontent.com/Angxddeep/Fedora-Freedom/refs/heads/main/dnf.conf
           sudo cp /tmp/dnf.conf /etc/dnf/dnf.conf
           color_echo "green" "DNF configuration updated."
           break
