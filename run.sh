@@ -34,13 +34,13 @@ temp_file=$(mktemp)
 check $? "Creating the temporary file"
 
 curl -fsL "$(getUrl)" -o "$temp_file"
-check $? "Downloading linutil"
+check $? "Downloading Fedora-Freedom"
 
 chmod +x "$temp_file"
-check $? "Making linutil executable"
+check $? "Making Fedora-Freedom executable"
 
 "$temp_file" "$@"
-check $? "Executing linutil"
+check $? "Executing Fedora-Freedom"
 
 rm -f "$temp_file"
 check $? "Deleting the temporary file"
