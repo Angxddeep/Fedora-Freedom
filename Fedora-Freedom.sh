@@ -155,4 +155,6 @@ configure_dnf() {
       esac
     done
 }
+
 configure_dnf
+check
