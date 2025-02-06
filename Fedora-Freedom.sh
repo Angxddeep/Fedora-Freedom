@@ -1,12 +1,5 @@
 #!/bin/sh -e
 
-
-{
-rc='\033[0m'
-red='\033[0;31m'
-}
-
-
 color_echo() {
     local color="$1"
     local text="$2"
