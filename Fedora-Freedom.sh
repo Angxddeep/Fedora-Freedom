@@ -12,16 +12,6 @@ color_echo() {
     esac
 }
 
-detect_system_type() {
-    if grep -q "Atomic" /etc/os-release; then
-        PACKAGER="rpm-ostree"
-    else
-        PACKAGER="dnf"
-    fi
-    color_echo "green" "Using package manager: $PACKAGER"
-}
-detect_system_type
-
 installflathub() {
     color_echo "yellow" "Enabling Flathub..."
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -32,10 +22,10 @@ installflathub
 installRPMFusion() {
     if [ ! -e /etc/yum.repos.d/rpmfusion-free.repo ] || [ ! -e /etc/yum.repos.d/rpmfusion-nonfree.repo ]; then
         color_echo "yellow" "Installing RPM Fusion..."
-        sudo "$PACKAGER" install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-        sudo "$PACKAGER" config-manager setopt fedora-cisco-openh264.enabled=1
-        sudo "$PACKAGER" config-manager setopt rpmfusion-nonfree-updates.enabled=1
-        sudo "$PACKAGER" config-manager setopt rpmfusion-free-updates.enabled=1
+        sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+        sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
+        sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
+        sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
         color_echo "green" "RPM Fusion installed and enabled"
     else
         color_echo "green" "RPM Fusion already installed"
@@ -45,7 +35,7 @@ installRPMFusion
 
 installFFmpeg() {
     color_echo "yellow" "Installing FFmpeg..."
-    sudo "$PACKAGER" swap ffmpeg-free ffmpeg --allowerasing -y
+    sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
     if [ $? -ne 0 ]; then
         color_echo "red" "Failed to install FFmpeg"
         exit 1
@@ -111,20 +101,20 @@ color_echo "red" "GPU: $GPU_INFO"
 
 # Install the necessary drivers for Intel
 if [ "$CPU_INFO" = "INTEL" ] || [ "$GPU_INFO" = "INTEL" ]; then
-    sudo "$PACKAGER" install intel-media-driver -y
+    sudo dnf install intel-media-driver -y
 
 fi
 
 # install the necessary drivers for AMD
 if [ "$CPU_INFO" = "AMD" ] || [ "$GPU_INFO" = "AMD" ]; then
-    sudo "$PACKAGER" swap mesa-va-drivers mesa-va-drivers-freeworld -y
-    sudo "$PACKAGER" swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+    sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld -y
+    sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 fi
 
 # Install the necessary drivers for NVIDIA
 if [ "$GPU_INFO" = "NVIDIA" ]; then
     color_echo "red" "Make sure you are on the latest kernel version!"
-    sudo "$PACKAGER" install akmod-nvidia xorg-x11-drv-nvidia-cuda -y
+    sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda -y
     color_echo "red" "Wait for 5 minutes for the kernel modules to build or check the status using" 
 
     color_echo "blue" "modinfo -F version nvidia"
@@ -153,8 +143,4 @@ configure_dnf() {
     done
 }
 
-detect_system_type
-
-if [ "$PACKAGER" = "dnf" ]; then
-    configure_dnf
-fi
+configure_dnf
