@@ -5,10 +5,10 @@ As you know, Fedora only comes with support for free software by default. So thi
 
 ### By downloading this script, you can do things like:-
 
-- **Enabling Flathub & removes Fedora flatpak** (As Flathub is superior and fedora's repo only contains a subset of applications available in the flathub repo )
+- **Enabling Flathub & removes Fedora flatpak** (As Flathub is superior and fedora's repo only contains a subset of applications available in the flathub repo)
 - **Installing RPM Fusion Repo**
-- **Install full version of ffmpeg**
-- **Install Graphics Drivers**
+- **Installing full version of ffmpeg** (H264 support)
+- **Installing Graphics Drivers**
 
 
 This Project is not associated with [Fedora Project](https://fedoraproject.org/).
