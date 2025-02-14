@@ -20,9 +20,18 @@ installflathub() {
 installflathub
 
 removefedoraflatpak() {
-    color_echo "yellow" "Removing Fedora Flatpak..."
-    sudo flatpak remote-delete fedora
-    color_echo "green" "Fedora Flatpak removed"
+    color_echo "yellow" "Checking for Fedora Flatpak..."
+    if flatpak remotes | grep -q fedora; then
+        color_echo "yellow" "Removing Fedora Flatpak..."
+        if flatpak remote-delete fedora; then
+            color_echo "green" "Fedora Flatpak removed"
+        else
+            color_echo "red" "Failed to remove Fedora Flatpak"
+            exit 1
+        fi
+    else
+        color_echo "green" "Fedora Flatpak is not installed"
+    fi
 }
 removefedoraflatpak
 
@@ -128,7 +137,7 @@ if [ "$GPU_INFO" = "NVIDIA" ]; then
 fi
 
 configure_dnf() {
-    color_echo "green" "Do you want to do some tweaks to DNF (Highly Recommended) " 
+    color_echo "green" "Do you want to do some tweaks to DNF (Recommended) " 
     while true; do
       echo "Enter your choice (y/n): "
       read yn
