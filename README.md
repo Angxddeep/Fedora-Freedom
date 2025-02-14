@@ -3,7 +3,7 @@
 As you know, Fedora only comes with support for free software by default. So this Project gives you the freedom to install non-free software. 
 
 
-### By Running this script, you can do things like:-
+### 🛠 By Running this script, you can do things like:-
 
 - **Enabling Flathub & removing Fedora flatpak** (As Flathub is superior and fedora's repo only contains a subset of applications available in the flathub repo)
 - **Installing RPM Fusion Repo**
