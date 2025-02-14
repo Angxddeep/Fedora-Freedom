@@ -7,8 +7,8 @@ As you know, Fedora only comes with support for free software by default. So thi
 
 - Enabling Flathub
 - Installing RPM Fusion Repo
-- Install ffmpeg full version  
-- Install Graphic Drivers
+- Install full version of **ffmpeg**
+- Install Graphics Drivers
 
 
 This Project is not associated with [Fedora Project](https://fedoraproject.org/).
