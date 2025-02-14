@@ -19,6 +19,13 @@ installflathub() {
 }
 installflathub
 
+removefedoraflatpak() {
+    color_echo "yellow" "Removing Fedora Flatpak..."
+    sudo flatpak remote-delete fedora
+    color_echo "green" "Fedora Flatpak removed"
+}
+removefedoraflatpak
+
 installRPMFusion() {
     if [ ! -e /etc/yum.repos.d/rpmfusion-free.repo ] || [ ! -e /etc/yum.repos.d/rpmfusion-nonfree.repo ]; then
         color_echo "yellow" "Installing RPM Fusion..."
