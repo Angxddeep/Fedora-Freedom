@@ -1,9 +1,9 @@
+### ⚠️ Maintenance Notice
+**This project will no longer be maintained.** After seeing this [Project](https://github.com/k-mktr/fedora-things-to-do) i came to realise that this offers much more than this project does today.
+
 # Fedora-Freedom
 
 As you know, Fedora only comes with support for free software by default. So this Project gives you the freedom to install non-free software. 
-
-### ⚠️ Maintenance Notice
-**This project will no longer be maintained.** After seeing this [Project](https://github.com/k-mktr/fedora-things-to-do) i came to realise that this offers much more than this project does today.
 
 ### 🛠 By Running this script, you can do things like:-
 
