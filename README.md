@@ -1,5 +1,5 @@
 ### ⚠️ Maintenance Notice
-**This project will no longer be maintained.** After seeing this [Project](https://github.com/k-mktr/fedora-things-to-do) i came to realise that this offers much more than this project does today.
+**This project will no longer be maintained.** I came to realise that this [Project](https://github.com/k-mktr/fedora-things-to-do) offers much more than my project does today.
 
 # Fedora-Freedom
 
